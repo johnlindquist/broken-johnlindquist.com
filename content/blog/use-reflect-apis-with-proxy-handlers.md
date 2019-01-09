@@ -5,6 +5,7 @@ title: 'Use Reflect APIs with Proxy Handlers'
 description: 'Learn how to use Reflect APIs with Proxy Handlers'
 categories: ['javascript']
 keywords: ['javascript', 'proxy', 'reflect']
+published: true
 ---
 
 # Use Reflect apis with Proxy Handlers

@@ -5,6 +5,7 @@ title: 'Your First JavaScript Proxy'
 description: 'Learn how to create your first Proxy in JavaScript'
 categories: ['javascript']
 keywords: ['javascript', 'proxy']
+published: true
 ---
 
 # Your First JavaScript Proxy

@@ -74,7 +74,7 @@ exports.createPages = ({ actions, graphql }) =>
     const { edges } = data.allMdx
     const { createRedirect, createPage } = actions
     createPosts(createPage, createRedirect, edges)
-    createPaginatedPages(actions.createPage, edges, '/blog', {
+    createPaginatedPages(actions.createPage, edges, '/', {
       categories: [],
     })
   })
@@ -109,7 +109,7 @@ const createPaginatedPages = (createPage, edges, pathPrefix, context) => {
 
     createPage({
       path: index > 0 ? `${pathPrefix}/${index}` : `${pathPrefix}`,
-      component: path.resolve(`src/templates/blog.js`),
+      component: path.resolve(`src/pages/index.js`),
       context: {
         pagination: {
           page,
@@ -145,6 +145,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: node.id,
     })
 
+    console.log('is this happening...')
     createNodeField({
       name: 'published',
       node,

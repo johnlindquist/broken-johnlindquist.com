@@ -1,6 +1,7 @@
 ---
 title: 2017 Favorite Things
 date: 2017-12-27
+published: true
 ---
 
 ## Frontend Development

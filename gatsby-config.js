@@ -1,18 +1,27 @@
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    siteUrl: 'https://egghead.io/',
-    author: 'egghead.io',
-    title: 'The blog of an egghead creator',
+    siteUrl: 'https://johnlindquist.com/',
+    author: 'John Lindquist',
+    title: 'The blog of John Lindquist',
     description: 'This is where they post things!',
     keywords: ['Video Blogger'],
+    canonicalUrl: 'https://joelhooks.com',
   },
-  plugins: [1
+  plugins: [
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/blog`,
         name: 'blog',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/legacy_blog`,
+        name: 'legacy',
+        ignore: [`**/readme.md`],
       },
     },
     {

@@ -16,46 +16,58 @@ A `Proxy` is a fancy word for intercepting how you interact with objects in Java
 
 First we'll create a simple object:
 
-    let person = {name: "John"}
+```js
+let person = { name: 'John' }
+```
 
 If I change the name to `Mindy`, if I want to capture the change to see the value before and after it changes, I have to do it _around_ setting the value.
 
-    console.log(person.name)
-    person.name = "Mindy"
-    console.log(person.name)
+```js
+console.log(person.name)
+person.name = 'Mindy'
+console.log(person.name)
+```
 
 A `Proxy` will let me intercept when the value is `set` by using a `handler` with a `set` function:
 
-    let handler = {
-    	set(target, property, value){
-    		//target is the original `person`
-    		//property is the `name` property
-    		//value would be "Mindy"
-    	}
-    }
+```js
+let handler = {
+  set(target, property, value) {
+    //target is the original `person`
+    //property is the `name` property
+    //value would be "Mindy"
+  },
+}
+```
 
 `set` is called a "trap". A "trap" is a function that intercepts the original behavior and allows you to re-write any behavior you would like.
 
 The implementation of `set` is simply logging out the old `target[property]` then logging out the new `value`
 
-    let handler = {
-      set(target, prop, value) {
-    		//log out what's changing
-        console.log(`Changing from ${target[prop]} to ${value}`);
+```js
+let handler = {
+  set(target, prop, value) {
+    //log out what's changing
+    console.log(`Changing from ${target[prop]} to ${value}`)
 
-    		//actually change it
-        return (target[prop] = value);
-      }
-    };
+    //actually change it
+    return (target[prop] = value)
+  },
+}
+```
 
 So now we can drop our `person` and `handler` into a `new Proxy` and everything will be wired up:
 
-    person = new Proxy(person, handler)
+```js
+person = new Proxy(person, handler)
+```
 
 Now, when we change the `name`, the console will log out the change:
 
-    person.name = "Mindy"
-    //console logs out "Changing from John to Mindy"
+```js
+person.name = 'Mindy'
+//console logs out "Changing from John to Mindy"
+```
 
 # Prove it!
 

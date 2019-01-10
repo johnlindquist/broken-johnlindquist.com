@@ -29,7 +29,7 @@ export default all => {
           )}
 
           <h2>
-            <Link to={post.frontmatter.slug}>{post.frontmatter.title}</Link>
+            <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
           </h2>
 
           <small>{post.frontmatter.date}</small>

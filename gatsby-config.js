@@ -36,6 +36,9 @@ module.exports = {
               sizeByPixelDensity: true,
             },
           },
+          {
+            resolve: 'gatsby-remark-embed-codesandbox',
+          },
         ],
       },
     },

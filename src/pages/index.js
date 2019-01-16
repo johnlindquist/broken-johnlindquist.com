@@ -7,9 +7,9 @@ import get from 'lodash/get'
 import Img from 'gatsby-image'
 
 import { compareDesc } from 'date-fns'
+import { scale, rhythm } from '../utils/typography'
 
 export default all => {
-  console.log({ all })
   const { data } = all
   const { site } = data
 
@@ -23,7 +23,7 @@ export default all => {
     <Layout title={site.siteMetadata.title} site={site}>
       <h1>johnlindquist.com</h1>
       {posts.map(({ node: post }) => (
-        <div key={post.id}>
+        <div key={post.id} style={{ paddingBottom: rhythm(2) }}>
           {post.frontmatter.banner && (
             <Img sizes={post.frontmatter.banner.childImageSharp.sizes} />
           )}
@@ -36,7 +36,7 @@ export default all => {
 
           <p>{post.excerpt}</p>
 
-          <Link to={post.fields.slug}>Continue Reading</Link>
+          <Link to={post.fields.slug}>Continue reading...</Link>
         </div>
       ))}
     </Layout>

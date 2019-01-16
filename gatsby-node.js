@@ -145,7 +145,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: node.id,
     })
 
-    console.log('is this happening...')
     createNodeField({
       name: 'published',
       node,

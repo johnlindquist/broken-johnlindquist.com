@@ -77,7 +77,8 @@ export default ({ site, title, frontmatter = {}, children }) => {
             style={{
               marginLeft: 'auto',
               marginRight: 'auto',
-              maxWidth: rhythm(24),
+              maxWidth: rhythm(26),
+              minWidth: rhythm(11),
               padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
             }}
           >

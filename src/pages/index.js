@@ -20,7 +20,7 @@ export default all => {
     })
 
   return (
-    <Layout site={site}>
+    <Layout title={site.siteMetadata.title} site={site}>
       <h1>johnlindquist.com</h1>
       {posts.map(({ node: post }) => (
         <div key={post.id}>

@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { MDXProvider } from '@mdx-js/tag'
 import { css, Global } from '@emotion/core'
-
+import { scale, rhythm } from '../utils/typography'
 import mdxComponents from './mdx'
 
 const globalStyles = css`
@@ -14,20 +14,12 @@ const globalStyles = css`
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial;
-  }
-
-  #___gatsby {
-    max-width: 50%;
   }
 
   ${() => {
     /* Override PrismJS Defaults */ return null
   }} pre {
-    background-color: #061526 !important;
-    border-radius: 4px;
-    font-size: 14px;
-    padding: 5px;
+    padding: 0.5rem;
   }
 
   .gatsby-highlight-code-line {
@@ -40,9 +32,8 @@ const globalStyles = css`
   }
 `
 
-export default ({ site, frontmatter = {}, children }) => {
+export default ({ site, title, frontmatter = {}, children }) => {
   const {
-    title,
     description: siteDescription,
     keywords: siteKeywords,
   } = site.siteMetadata
@@ -50,6 +41,7 @@ export default ({ site, frontmatter = {}, children }) => {
   const {
     keywords: frontmatterKeywords,
     description: frontmatterDescription,
+    date,
   } = frontmatter
 
   const keywords = (frontmatterKeywords || siteKeywords).join(', ')
@@ -60,15 +52,38 @@ export default ({ site, frontmatter = {}, children }) => {
       <Helmet
         title={title}
         meta={[
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1.0',
+          },
           { name: 'description', content: description },
           { name: 'keywords', content: keywords },
+          { name: 'twitter:title', content: title },
+          {
+            name: 'twitter:description',
+            content: 'The best darn blog on the whole darn internet',
+          },
+          { name: 'twitter:label1', value: 'Reading time' },
+          { name: 'twitter:data1', value: '5 min read' },
+          { name: 'article:published_time', content: date },
         ]}
       >
         <html lang="en" />
       </Helmet>
       <Global styles={globalStyles} />
       <MDXProvider components={mdxComponents}>
-        <Fragment>{children}</Fragment>
+        <Fragment>
+          <div
+            style={{
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              maxWidth: rhythm(24),
+              padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+            }}
+          >
+            {children}
+          </div>
+        </Fragment>
       </MDXProvider>
     </Fragment>
   )

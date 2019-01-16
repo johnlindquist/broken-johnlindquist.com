@@ -3,10 +3,10 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://johnlindquist.com/',
     author: 'John Lindquist',
-    title: 'The blog of John Lindquist',
-    description: 'This is where they post things!',
-    keywords: ['Video Blogger'],
-    canonicalUrl: 'https://joelhooks.com',
+    title: 'The Blog of John Lindquist',
+    description: 'John Lindquist writes about code and life',
+    keywords: ['founder of egghead.io'],
+    canonicalUrl: 'https://johnlindquist.com',
   },
   plugins: [
     {
@@ -37,11 +37,12 @@ module.exports = {
             },
           },
           {
-            resolve: 'gatsby-remark-embed-codesandbox',
+            resolve: '@johnlindquist/gatsby-remark-embed-codesandbox',
           },
         ],
       },
     },
+
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-emotion',
@@ -63,6 +64,12 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: `GOOGLE_ID`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
       },
     },
     {

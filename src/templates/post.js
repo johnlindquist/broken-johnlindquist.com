@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
-
+import { scale, rhythm } from '../utils/typography'
 import Layout from '../components/Layout'
 
 export default function Post({
@@ -10,8 +10,20 @@ export default function Post({
   pageContext: { next, prev },
 }) {
   return (
-    <Layout site={site} frontmatter={mdx.frontmatter}>
-      <h1>{mdx.frontmatter.title}</h1>
+    <Layout
+      title={mdx.frontmatter.title}
+      site={site}
+      frontmatter={mdx.frontmatter}
+    >
+      <a
+        style={{
+          textDecoration: 'none',
+        }}
+        href="/"
+      >
+        johnlindquist.com
+      </a>
+      <h1 style={{ paddingTop: rhythm(0.5) }}>{mdx.frontmatter.title}</h1>
       <h2>{mdx.frontmatter.date}</h2>
 
       {mdx.frontmatter.banner && (

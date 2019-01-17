@@ -11,9 +11,6 @@ const globalStyles = css`
   body {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   ${() => {
@@ -78,7 +75,7 @@ export default ({ site, title, frontmatter = {}, children }) => {
               marginLeft: 'auto',
               marginRight: 'auto',
               maxWidth: rhythm(26),
-              minWidth: rhythm(11),
+              minWidth: rhythm(13),
               padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
             }}
           >

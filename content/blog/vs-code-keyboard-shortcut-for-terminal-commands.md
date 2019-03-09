@@ -7,4 +7,4 @@ published: false
 
 # VS Code Keyboard Shortcut for Terminal Commands
 
-Testing
+https://marketplace.visualstudio.com/items?itemName=kortina.run-in-terminal

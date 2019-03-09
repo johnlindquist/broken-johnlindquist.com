@@ -1,13 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { css } from '@emotion/core'
 import Layout from '../components/Layout'
 import Link from '../components/Link'
-import get from 'lodash/get'
 import Img from 'gatsby-image'
 
-import { compareDesc } from 'date-fns'
-import { scale, rhythm } from '../utils/typography'
+import { compareDesc, format } from 'date-fns'
+import { rhythm } from '../utils/typography'
+
+
 
 export default all => {
   const { data } = all
@@ -29,10 +29,10 @@ export default all => {
           )}
 
           <h2>
-            <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+            <Link to={post.fields.slug}>{post.fields.title}</Link>
           </h2>
 
-          <small>{post.frontmatter.date}</small>
+          <small>{format(post.frontmatter.date, "MMMM Do, YYYY")}</small>
 
           <p>{post.excerpt}</p>
 
@@ -61,7 +61,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            date(formatString: "MMMM DD, YYYY")
+            date
             banner {
               childImageSharp {
                 sizes(maxWidth: 720) {

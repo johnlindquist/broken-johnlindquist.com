@@ -21,7 +21,6 @@ module.exports = {
       options: {
         path: `${__dirname}/content/legacy_blog`,
         name: 'legacy',
-        ignore: [`**/readme.md`],
       },
     },
     {
@@ -38,6 +37,9 @@ module.exports = {
           },
           {
             resolve: '@johnlindquist/gatsby-remark-embed-codesandbox',
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
           },
         ],
       },

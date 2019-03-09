@@ -125,6 +125,10 @@ const createPaginatedPages = (createPage, edges, pathPrefix, context) => {
   })
 }
 
+function htmlEntities(str) {
+  return str.replace(/&.*?;/g, '')
+}
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
@@ -132,6 +136,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const parent = getNode(node.parent)
     const titleSlugged = _.join(_.drop(parent.name.split('-'), 3), '-')
 
+    const source = parent.sourceInstanceName
     const slug =
       parent.sourceInstanceName === 'legacy'
         ? `${node.frontmatter.date
@@ -139,6 +144,10 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
             .replace(/-/g, '/')}/${titleSlugged}`
         : node.frontmatter.slug || titleSlugged
 
+    const title =
+      parent.sourceInstanceName === 'egghead'
+        ? htmlEntities(node.frontmatter.title)
+        : node.frontmatter.title
     createNodeField({
       name: 'id',
       node,
@@ -154,7 +163,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       name: 'title',
       node,
-      value: node.frontmatter.title,
+      value: title,
     })
 
     createNodeField({
@@ -167,6 +176,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: 'slug',
       node,
       value: slug,
+    })
+
+    createNodeField({
+      name: 'source',
+      node,
+      value: source,
     })
 
     createNodeField({

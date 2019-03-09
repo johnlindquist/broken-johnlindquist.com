@@ -43,6 +43,7 @@ console.log(person.name)
 This raises the question: "Why would I ever `Reflect.set` when I could just assign `person.name = "John"`? The answer comes from trying an attempting an assignment that might fail:
 
 ```js
+'use strict'
 let person = {}
 
 Object.seal(person) //"seal" prevents adding properties

@@ -47,7 +47,7 @@ console.log(mindy)
 
 3. We now have a `mindyify` function that can change the `name` of any object to `"Mindy"`.
 
-Note: This _only_ changes the `name` property. All other properties on the object will be untouched.
+Note: This creates a new object with the new `name` property. The previous `person` is left untouched.
 
 # Try It Out!
 
@@ -64,10 +64,10 @@ let state = {
   people: [
     {
       name: {
-        first: 'John'
-      }
-    }
-  ]
+        first: 'John',
+      },
+    },
+  ],
 }
 ```
 
@@ -86,10 +86,10 @@ let state = {
   people: [
     {
       name: {
-        first: 'John'
-      }
-    }
-  ]
+        first: 'John',
+      },
+    },
+  ],
 }
 
 let first = lensProxy().people[0].name.first
@@ -116,15 +116,15 @@ let state = {
   people: [
     {
       name: {
-        first: 'John'
-      }
+        first: 'John',
+      },
     },
     {
       name: {
-        first: 'Ben'
-      }
-    }
-  ]
+        first: 'Ben',
+      },
+    },
+  ],
 }
 
 let first = lensProxy().people.$(each).name.first

@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { MDXProvider } from '@mdx-js/tag'
 import { css, Global } from '@emotion/core'
-import { scale, rhythm } from '../utils/typography'
+import { rhythm } from '../utils/typography'
 import mdxComponents from './mdx'
 
 const globalStyles = css`

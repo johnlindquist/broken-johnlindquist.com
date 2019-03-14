@@ -74,7 +74,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            date(formatString: "MMMM DD, YYYY")
+            date
             banner {
               childImageSharp {
                 sizes(maxWidth: 720) {

@@ -70,7 +70,7 @@ export default ({
           { name: 'twitter:label1', value: 'Reading time' },
           { name: 'twitter:data1', value: readingTime },
           { name: 'article:published_time', content: date },
-          ...(twitterEmbedVideo.length
+          ...((twitterEmbedVideo || '').length
             ? [
                 {
                   name: 'twitter:player',

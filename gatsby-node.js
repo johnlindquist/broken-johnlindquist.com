@@ -137,6 +137,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const titleSlugged = _.join(_.drop(parent.name.split('-'), 3), '-')
 
     const source = parent.sourceInstanceName
+
     const slug =
       parent.sourceInstanceName === 'legacy'
         ? `${node.frontmatter.date
@@ -158,6 +159,19 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: 'published',
       node,
       value: node.frontmatter.published,
+    })
+
+    createNodeField({
+      name: 'readingTime',
+      node,
+      value: node.frontmatter.readingTime || '5 mins',
+    })
+
+    const embed = node.frontmatter.twitterEmbedVideo
+    createNodeField({
+      name: 'twitterEmbedVideo',
+      node,
+      value: embed ? `https://egghead.io/lessons/${embed}/embed` : '',
     })
 
     createNodeField({

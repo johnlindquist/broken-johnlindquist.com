@@ -29,7 +29,15 @@ const globalStyles = css`
   }
 `
 
-export default ({ site, title, frontmatter = {}, children }) => {
+export default ({
+  site,
+  title,
+  date,
+  readingTime,
+  twitterEmbedVideo,
+  frontmatter = {},
+  children,
+}) => {
   const {
     description: siteDescription,
     keywords: siteKeywords,
@@ -38,7 +46,6 @@ export default ({ site, title, frontmatter = {}, children }) => {
   const {
     keywords: frontmatterKeywords,
     description: frontmatterDescription,
-    date,
   } = frontmatter
 
   const keywords = (frontmatterKeywords || siteKeywords).join(', ')
@@ -61,8 +68,39 @@ export default ({ site, title, frontmatter = {}, children }) => {
             content: 'The best darn blog on the whole darn internet',
           },
           { name: 'twitter:label1', value: 'Reading time' },
-          { name: 'twitter:data1', value: '5 min read' },
+          { name: 'twitter:data1', value: readingTime },
           { name: 'article:published_time', content: date },
+          ...(twitterEmbedVideo.length
+            ? [
+                {
+                  name: 'twitter:player',
+                  value: twitterEmbedVideo,
+                },
+                {
+                  name: 'twitter:player:width',
+                  value: 720,
+                },
+                {
+                  name: 'twitter:player:height',
+                  value: 480,
+                },
+
+                {
+                  name: 'twitter:image',
+                  value:
+                    'https://d2ddoduugvun08.cloudfront.net/items/141L3h0T3H021F0N351W/eggo.svg',
+                },
+
+                {
+                  name: 'twitter:card',
+                  value: 'player',
+                },
+                {
+                  name: 'twitter:site',
+                  value: 'johnlindquist',
+                },
+              ]
+            : []),
         ]}
       >
         <html lang="en" />
@@ -74,7 +112,7 @@ export default ({ site, title, frontmatter = {}, children }) => {
             style={{
               marginLeft: 'auto',
               marginRight: 'auto',
-              maxWidth: rhythm(26),
+              maxWidth: rhythm(30),
               minWidth: rhythm(13),
               padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
             }}

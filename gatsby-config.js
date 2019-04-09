@@ -26,6 +26,11 @@ module.exports = {
     {
       resolve: `gatsby-mdx`,
       options: {
+        globalScope: `
+        import EggheadEmbed from "components/mdx/EggheadEmbed";
+        import Codesandbox from "components/mdx/Codesandbox";
+        export default { EggheadEmbed, Codesandbox };
+      `,
         extensions: ['.mdx', '.md', '.markdown'],
         gatsbyRemarkPlugins: [
           {

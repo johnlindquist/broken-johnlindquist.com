@@ -88,7 +88,7 @@ export default ({
                 {
                   name: 'twitter:image',
                   value:
-                    'https://d2ddoduugvun08.cloudfront.net/items/141L3h0T3H021F0N351W/eggo.svg',
+                    'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/005/medium/avatar-500x500.jpg',
                 },
 
                 {

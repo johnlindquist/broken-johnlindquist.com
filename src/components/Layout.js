@@ -79,17 +79,17 @@ export default ({
                 },
                 {
                   name: 'twitter:player:width',
-                  value: 720,
+                  value: 1280,
                 },
                 {
                   name: 'twitter:player:height',
-                  value: 480,
+                  value: 720,
                 },
 
                 {
                   name: 'twitter:image',
                   value:
-                    'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/005/medium/avatar-500x500.jpg',
+                    'https://s3.amazonaws.com/johnlindquist-images/eggo-1280x720.jpg',
                 },
 
                 {

@@ -41,6 +41,7 @@ export default ({
   const {
     description: siteDescription,
     keywords: siteKeywords,
+    twitter,
   } = site.siteMetadata
 
   const {
@@ -65,7 +66,7 @@ export default ({
           { name: 'twitter:title', content: title },
           {
             name: 'twitter:description',
-            content: 'The best darn blog on the whole darn internet',
+            content: description,
           },
           { name: 'twitter:label1', value: 'Reading time' },
           { name: 'twitter:data1', value: readingTime },
@@ -97,7 +98,7 @@ export default ({
                 },
                 {
                   name: 'twitter:site',
-                  value: 'johnlindquist',
+                  value: twitter,
                 },
               ]
             : []),

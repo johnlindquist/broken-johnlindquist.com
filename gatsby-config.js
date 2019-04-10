@@ -4,9 +4,10 @@ module.exports = {
     siteUrl: 'https://johnlindquist.com/',
     author: 'John Lindquist',
     title: 'The Blog of John Lindquist',
-    description: 'John Lindquist writes about code and life',
+    description: 'Mostly code. Some opinions. No rants.',
     keywords: ['founder of egghead.io'],
     canonicalUrl: 'https://johnlindquist.com',
+    twitter: 'johnlindquist',
   },
   plugins: [
     {

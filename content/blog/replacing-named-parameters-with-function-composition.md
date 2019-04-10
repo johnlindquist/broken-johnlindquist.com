@@ -57,6 +57,13 @@ The true _input_ there is the `nums`, the other options _modify_ the `nums`.
 
 > `array` is the _input_. `to` and `from` _modify_ the input.
 
+Compare these two below:
+
+<Codesandbox
+  slug="github/johnlindquist/fp-lessons/tree/refactor-named-parameters"
+  console
+/>
+
 I saw another example online using a simple `formatDate` function like this:
 
 ```js

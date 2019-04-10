@@ -5,8 +5,6 @@ date: 2019-01-16
 published: true
 ---
 
-# Build a Lens from Scratch
-
 Let's take a backwards approach to dive into lenses by starting with our final implementation. What you see below is what we want our api to look like. We want `prop` to be a lens which can focus on a property and we want `view` to use the lens to focus onto the `person` (or any other object we pass in as the second parameter). At first glance, this will probably look confusing, but the trick is pretty easy to explain.
 
 ```js

@@ -5,8 +5,6 @@ date: 2019-03-10 12:03
 published: true
 ---
 
-# Create Command Line Tools With Node.js
-
 There are so many every day tasks that we all come across that we need to automate away.
 My most recent example is that I wanted to blog more.
 

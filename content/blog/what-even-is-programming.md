@@ -5,8 +5,6 @@ date: 2019-03-08
 published: true
 ---
 
-# What Even is Programming?
-
 I don't know anymore. I thought that programming was writing some code and handing it over to a computer to execute.
 
 Now it seems like we weave together services and sites automatically appear through some magical internet portal.

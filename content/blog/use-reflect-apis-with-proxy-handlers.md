@@ -8,8 +8,6 @@ keywords: ['javascript', 'proxy', 'reflect']
 published: true
 ---
 
-# Use Reflect apis with Proxy Handlers
-
 You'll notice something strange when you compare the `Reflect` API and the `handler` API for Proxies:
 
 | Reflect API                        | handler API                        |

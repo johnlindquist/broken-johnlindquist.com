@@ -5,8 +5,6 @@ date: 2019-03-09 17:05
 published: false
 ---
 
-# The Twitter 777 Rule
-
 I kept a hard rule of following exactly 777 people on twitter.
 This forces me to unfollow someone whenever I want to follow someone new.
 

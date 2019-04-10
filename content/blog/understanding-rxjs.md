@@ -5,8 +5,6 @@ date: 2019-03-19 17:03
 published: true
 ---
 
-# Understanding RxJS
-
 RxJS has these 4 parts:
 
 1. callback

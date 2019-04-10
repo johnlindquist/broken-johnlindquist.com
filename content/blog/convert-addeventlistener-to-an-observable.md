@@ -5,8 +5,6 @@ date: 2019-03-20 09:03
 published: false
 ---
 
-# Convert AddEventListener to an Observable
-
 [https://codesandbox.io/embed/7jk4q988lj?module=%2Fsrc%2Findex.js&view=editor](https://codesandbox.io/embed/7jk4q988lj?module=%2Fsrc%2Findex.js&view=editor)
 
 Compare: addEventListener, setTimeout, promises

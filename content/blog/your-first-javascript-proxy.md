@@ -8,8 +8,6 @@ keywords: ['javascript', 'proxy']
 published: true
 ---
 
-# Your First JavaScript Proxy
-
 A `Proxy` is a fancy word for intercepting how you interact with objects in JavaScript. Want to hi-jack what happens when you set a value? Care to log out every time you call a function? All this and much more can be done by wrapping your object in a `Proxy` and "handling" those interactions.
 
 # `console.log` When They're Changed with `handler.set`

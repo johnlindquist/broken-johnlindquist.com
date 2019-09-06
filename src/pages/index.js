@@ -7,14 +7,15 @@ import Img from 'gatsby-image'
 import { compareDesc, format } from 'date-fns'
 import { rhythm } from '../utils/typography'
 
-
-
 export default all => {
   const { data } = all
   const { site } = data
 
   const posts = data.allMdx.edges
-    .filter(({ node }) => node.fields.published)
+    .filter(
+      ({ node }) =>
+        process.env.NODE_ENV === 'development' || node.fields.published,
+    )
     .sort((prev, next) => {
       return compareDesc(prev.node.fields.date, next.node.fields.date)
     })
@@ -32,7 +33,7 @@ export default all => {
             <Link to={post.fields.slug}>{post.fields.title}</Link>
           </h2>
 
-          <small>{format(post.frontmatter.date, "MMMM Do, YYYY")}</small>
+          <small>{format(post.frontmatter.date, 'MMMM Do, YYYY')}</small>
 
           <p>{post.excerpt}</p>
 

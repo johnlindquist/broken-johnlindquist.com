@@ -5,6 +5,8 @@ date: 2019-04-20 19:04
 published: true
 ---
 
+<div>{props.pageContext.frontmatter}</div>
+
 First, install the [runInTerminal](https://marketplace.visualstudio.com/items?itemName=kortina.run-in-terminal) extension.
 
 Then, add the following to your keyboard shortcuts:
@@ -24,3 +26,5 @@ Then, add the following to your keyboard shortcuts:
 - `git add .` will add all files to be commited
 - `` git commit -m \"`date`\" --allow-empty `` will commit with the current date as a message even allowing commiting no changes (important if you're just creating a branch without changes)
 - `git push` pushes the branch
+
+Final note, I published this blog post with that keyboard shortcut :)

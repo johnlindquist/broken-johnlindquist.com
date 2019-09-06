@@ -19,6 +19,12 @@ const globalStyles = css`
     padding: 0.5rem;
   }
 
+  h3,
+  h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
   .gatsby-highlight-code-line {
     background-color: #4f424c;
     display: block;

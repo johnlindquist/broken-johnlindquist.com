@@ -5,8 +5,6 @@ date: 2019-04-20 19:04
 published: true
 ---
 
-<div>{props.pageContext.frontmatter}</div>
-
 First, install the [runInTerminal](https://marketplace.visualstudio.com/items?itemName=kortina.run-in-terminal) extension.
 
 Then, add the following to your keyboard shortcuts:

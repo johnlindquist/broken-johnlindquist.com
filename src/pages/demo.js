@@ -49,7 +49,7 @@ export const pageQuery = graphql`
     site {
       ...site
     }
-    allMdx(filter: { fields: { source: { eq: "blog" } } }) {
+    allMdx(filter: { fields: { source: { eq: "demo" } } }) {
       edges {
         node {
           excerpt(pruneLength: 300)

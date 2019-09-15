@@ -33,37 +33,42 @@ const createPosts = (createPage, createRedirect, edges) => {
   })
 }
 
-exports.createPages = ({ actions, graphql }) =>
-  graphql(`
-    query {
-      allMdx(
-        filter: { frontmatter: { published: { ne: ${process.env.NODE_ENV ===
-          'development'} } } }
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ) {
-        edges {
-          node {
-            id
-            parent {
-              ... on File {
-                name
-                sourceInstanceName
-              }
-            }
-            excerpt(pruneLength: 250)
-            fields {
-              title
-              slug
-              date
-            }
-            code {
-              scope
-            }
+const unpublishedFilter =
+  process.env.NODE_ENV === 'development'
+    ? ``
+    : `filter: { frontmatter: { published: { eq: true } } }`
+
+const pageQuery = `
+query {
+  allMdx(
+    ${unpublishedFilter}
+    sort: { order: DESC, fields: [frontmatter___date] }) {
+    edges {
+      node {
+        id
+        parent {
+          ... on File {
+            name
+            sourceInstanceName
           }
+        }
+        excerpt(pruneLength: 250)
+        fields {
+          title
+          slug
+          date
+        }
+        code {
+          scope
         }
       }
     }
-  `).then(({ data, errors }) => {
+  }
+}
+`
+
+exports.createPages = ({ actions, graphql }) =>
+  graphql(pageQuery).then(({ data, errors }) => {
     if (errors) {
       return Promise.reject(errors)
     }

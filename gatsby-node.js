@@ -8,7 +8,13 @@ const createPosts = (createPage, createRedirect, edges) => {
   edges.forEach(({ node }, i) => {
     const prev = i === 0 ? null : edges[i - 1].node
     const next = i === edges.length - 1 ? null : edges[i + 1].node
-    const pagePath = node.fields.slug
+
+    const sub = node.fields.source
+    console.log(sub)
+    const subPath = sub === 'blog' ? '' : `${sub}/`
+    const slug = node.fields.slug
+
+    const pagePath = `${subPath}${slug}`
 
     if (node.fields.redirects) {
       node.fields.redirects.forEach(fromPath => {
@@ -54,6 +60,7 @@ query {
         }
         excerpt(pruneLength: 250)
         fields {
+          source
           title
           slug
           date

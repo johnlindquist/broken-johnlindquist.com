@@ -10,7 +10,6 @@ const createPosts = (createPage, createRedirect, edges) => {
     const next = i === edges.length - 1 ? null : edges[i + 1].node
 
     const sub = node.fields.source
-    console.log(sub)
     const subPath = sub === 'blog' ? '' : `${sub}/`
     const slug = node.fields.slug
 
@@ -64,6 +63,7 @@ query {
           title
           slug
           date
+          path
         }
         code {
           scope
@@ -239,6 +239,16 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: 'redirects',
       node,
       value: node.frontmatter.redirects,
+    })
+
+    const sub = parent.sourceInstanceName
+    const subPath = sub === 'blog' ? '' : `${sub}/`
+
+    const pagePath = `${subPath}${slug}`
+    createNodeField({
+      name: 'path',
+      node,
+      value: pagePath,
     })
   }
 }

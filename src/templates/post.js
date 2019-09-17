@@ -9,8 +9,8 @@ export default function Post({
   data: { site, mdx },
   pageContext: { next, prev },
 }) {
-  const { source, title, readingTime, twitterEmbedVideo } = mdx.fields
-  const { slug, date, banner } = mdx.frontmatter
+  const { title, readingTime, twitterEmbedVideo } = mdx.fields
+  const { date, banner } = mdx.frontmatter
   return (
     <Layout
       date={date}

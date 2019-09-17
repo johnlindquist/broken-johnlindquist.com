@@ -30,14 +30,14 @@ export default all => {
           )}
 
           <h2>
-            <Link to={post.fields.slug}>{post.fields.title}</Link>
+            <Link to={post.fields.path}>{post.fields.title}</Link>
           </h2>
 
           <small>{format(post.frontmatter.date, 'MMMM Do, YYYY')}</small>
 
           <p>{post.excerpt}</p>
 
-          <Link to={post.fields.slug}>Continue reading...</Link>
+          <Link to={post.fields.path}>Continue reading...</Link>
         </div>
       ))}
     </Layout>
@@ -59,6 +59,7 @@ export const pageQuery = graphql`
             slug
             date
             published
+            path
           }
           frontmatter {
             title

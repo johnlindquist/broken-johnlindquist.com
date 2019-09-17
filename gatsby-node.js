@@ -244,7 +244,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const sub = parent.sourceInstanceName
     const subPath = sub === 'blog' ? '' : `${sub}/`
 
-    const pagePath = `${subPath}${slug}`
+    const pagePath = `/${subPath}${slug}`
     createNodeField({
       name: 'path',
       node,

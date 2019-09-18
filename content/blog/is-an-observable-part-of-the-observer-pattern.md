@@ -60,7 +60,6 @@ const createObservable = observer => {
 
 <Codesandbox slug="github/johnlindquist/observer-pattern/tree/observable" module="/src/index.js" console/>
 
-## Here Comes the Weird Part...
 
 Now, we could push as many values into `observer.notify` as we needed. In fact,
 you could set up an event listener inside the `createObservable` and

@@ -1,6 +1,6 @@
 ---
 slug: what-is-an-rxjs-subject
-title: What Is an RxJS Subject?
+title: Subject in RxJS vs. Subject in the Observer Pattern
 date: 2019-09-19 13:09
 published: true
 ---

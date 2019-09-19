@@ -150,8 +150,9 @@ We save events, timers, etc for Observables. This means we get to delete code! ð
 So let's remove the option to pass in a `subscribe` function.
 
 ```js
-const createSubject = subscribe =>
 //before
+const createSubject = subscribe =>
+//after
 const createSubject = () =>
 ```
 

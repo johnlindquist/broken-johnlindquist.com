@@ -203,4 +203,4 @@ You can see it in action below. A challenge for you is to create your
 own `subscribe` functions that you can pass in to `createObservable`.
 Try using `setInterval` or any other async tool that can start and stop.
 
-<Codesandbox slug="github/johnlindquist/observer-pattern/tree/observable" module="/src/index.js" console/>
+<Codesandbox slug="github/johnlindquist/observer-pattern/tree/done" module="/src/index.js" console/>

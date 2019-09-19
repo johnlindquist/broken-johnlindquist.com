@@ -2,7 +2,7 @@
 slug: what-is-an-rxjs-subject
 title: What Is an RxJS Subject?
 date: 2019-09-19 13:09
-published: false
+published: true
 ---
 
 ## The Observer Pattern had Subjects... 🤔
@@ -275,3 +275,21 @@ subject.next({ message: "Goodbye" })
 ```
 
 <Codesandbox slug="github/johnlindquist/observer-pattern/tree/forEach" module="/src/index.js" console/>
+
+## So If a Subject is an Observer, Can an Observable Subscribe to a Subject?
+
+**YES!** 🤯🤯🤯
+
+```js
+const subject = createSubject()
+const observable = createObservable(subscribe)
+
+subject.subscribe(oneObserver)
+subject.subscribe(twoObserver)
+
+observable.subscribe(subject)
+```
+
+<Codesandbox slug="github/johnlindquist/observer-pattern/tree/share" module="/src/index.js" console/>
+
+I'm just going to end this post here and let that demo sink in for a bit 😇

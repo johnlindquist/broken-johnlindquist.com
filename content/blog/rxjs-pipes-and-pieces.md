@@ -67,6 +67,8 @@ fromEvent(document, "click")
 })
 ```
 
+## Observable In, Observable Out
+
 Since returning the original observable does nothing, let's try returning a different observable. Pay special attention to the following:
 
 1. The `click` observable never calls subscribe! It's simply ignored by the operator
@@ -78,12 +80,14 @@ In fact:
 console.log(click.pipe(() => hi) === hi) //true!
 ```
 
+This isn't at all what we want, but it proves "Observable in, Observable out"
+
 <Codesandbox slug="github/johnlindquist/observer-pattern/tree/rxjs-operator-hi" module="/src/index.js" console/>
 
-## Almost Always Use `subscribe` Inside of an Operator
+## Always `subscribe` to the Original Observable Inside of an Operator
 
-The previous examples were simply to prove a point: Operators return either the original Observable or an Observable of your choosing.
-But the most common Operator scenarios are to `subscribe` on the original Observable then change the behavior of the observer:
+The previous examples were simply to prove a point: Operators receive the original Observable return an Observable.
+But the purpose of operators is to `subscribe` to the original Observable then change the behavior of the observer:
 
 
 The simplest example I can think of involves `subscribing` and logging out "hi". 

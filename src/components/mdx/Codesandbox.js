@@ -14,6 +14,7 @@ export default props => {
   const console = props.console ? `&expanddevtools=1` : ``
   const module = props.module ? `&module=${props.module}` : ``
   const view = props.view ? `&view=${props.view}` : ``
+  const hideNav = props.hide ? `` : `&hidenavigation=1`
   return (
     <div
       style={{
@@ -27,7 +28,7 @@ export default props => {
         title={props.title}
         src={`https://codesandbox.io/embed/${
           props.slug
-        }?fontsize=${fontsize}${console}${module}${view}`}
+        }?fontsize=${fontsize}${console}${module}${view}${hideNav}`}
         frameBorder="0"
       />
     </div>

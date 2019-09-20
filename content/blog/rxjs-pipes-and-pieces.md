@@ -86,7 +86,7 @@ The previous examples were simply to prove a point: Operators return either the 
 But the most common Operator scenarios are to `subscribe` on the original Observable then change the behavior of the observer:
 
 
-The simplest example I can think of involves `subscribing` and logging out "hi".
+The simplest example I can think of involves `subscribing` and logging out "hi". 
 ```js
 const operator = observable => {
   observable.subscribe(value => {
@@ -97,12 +97,15 @@ const operator = observable => {
 }
 ```
 
+With this operator in place, our demo will log out both `"hi"` and the `MouseEvent`.
+
 <Codesandbox slug="github/johnlindquist/observer-pattern/tree/hi-and-mouse-event" module="/src/index.js" console/>
 
 
 ## The `Operator`'s True Purpose: Intercepting Values from Observables
 
 Herein lies the secret sauce of operators:
+
 1. Create a new Observable inside the Operator
 2. `subscribe` to the original Observable
 3. Pass different values to `next`

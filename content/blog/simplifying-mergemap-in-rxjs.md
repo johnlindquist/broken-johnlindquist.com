@@ -102,7 +102,7 @@ const mergeMap = (source1, source2) => {
 }
 ```
 
-You'll notice there's one more thing trapped inside our function; the callback!
+You'll notice there's one more thing trapped inside our function: the callback!
 We definitely want to be able to customize the callback, so let's pull that out
 too:
 

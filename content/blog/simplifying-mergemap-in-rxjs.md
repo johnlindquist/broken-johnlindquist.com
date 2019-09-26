@@ -27,8 +27,8 @@ at the cost of mental overhead of learning the patterns.
 
 ## Refactoring to Functions
 
-Let's explore the `mergeMap` by refactoring the above example into an
-RxJS API. Let's wrap source #1 (the document clicks) in a function that
+Let's explore `mergeMap` by refactoring the above example into an
+RxJS API. First, wrap source #1 (the document clicks) in a function that
 receives a callback:
 
 ```js

@@ -362,3 +362,11 @@ RxJS can be expressed in functions that you can dig into yourself.
 
 
 <Codesandbox slug="github/johnlindquist/observer-pattern/tree/mergeMap" module="/src/index.js" console/>
+
+
+### Endnotes:
+
+I know RxJS has more features than my trivial explanation and example. 
+The RxJS contributors have done incredible, inspirational work on the project.
+I also think stripping away all the features and approaching them from the
+ground up is great teaching tool.

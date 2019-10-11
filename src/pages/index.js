@@ -7,6 +7,7 @@ import Link from 'components/Link'
 import { useTheme } from 'components/Theming'
 import Container from 'components/Container'
 import { rhythm } from '../lib/typography'
+import config from '../../config/website'
 
 const Hero = () => {
   const theme = useTheme()
@@ -36,7 +37,7 @@ const Hero = () => {
             max-width: ${rhythm(15)};
           `}
         >
-          Your blog says the things you want to say.
+          {config.headerText}
         </h1>
       </Container>
       <div

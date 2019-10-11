@@ -12,6 +12,8 @@ import reset from '../lib/reset'
 import { fonts } from '../lib/typography'
 import config from '../../config/website'
 import Footer from '../components/Footer'
+import EggheadEmbed from '../components/mdx/EggheadEmbed'
+import Codesandbox from '../components/mdx/Codesandbox'
 
 const getGlobalStyles = theme => {
   return css`

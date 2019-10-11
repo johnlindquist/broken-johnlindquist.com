@@ -4,6 +4,8 @@ import Title from './Title'
 import Subtitle from './Subtitle'
 import Paragraph from './Paragraph'
 import Code from './Code'
+import Codesandbox from './Codesandbox'
+import EggheadEmbed from './EggheadEmbed'
 
 export default {
   h1: props => <Title {...props} />,
@@ -11,4 +13,6 @@ export default {
   p: props => <Paragraph {...props} />,
   code: Code,
   pre: preProps => <pre {...preProps} />,
+  Codesandbox,
+  EggheadEmbed,
 }

@@ -160,6 +160,7 @@ export default ({
   const {
     description: siteDescription,
     keywords: siteKeywords,
+    twitter,
   } = site.siteMetadata
 
   const {

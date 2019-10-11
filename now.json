@@ -1,0 +1,16 @@
+{
+  "env": {
+    "GOOGLE_ANALYTICS": "UA-907593-1",
+    "NODE_ENV": "production"
+  },
+  "alias": "johnlindquist.com",
+  "scale": {
+    "sfo1": {
+      "min": 1,
+      "max": "auto"
+    }
+  },
+  "static": {
+    "trailingSlash": false
+  }
+}

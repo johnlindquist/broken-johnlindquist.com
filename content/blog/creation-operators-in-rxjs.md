@@ -17,7 +17,7 @@ off of rolling your own.
 As with all Operators, you begin with:
 
 ```js
-import {Observable} from "rxjs"
+import { Observable } from 'rxjs'
 ```
 
 > 📝 Someday, TC-39 _might_ add an Observable primitive and we wouldn't even have to install RxJS
@@ -25,11 +25,12 @@ import {Observable} from "rxjs"
 ## The Creation Operator Template
 
 The following is a template you can use whenever you want to make a creation operator:
+
 ```js
 const creationOperatorTemplate = config => {
   const source = new Observable(observer => {
-    return () => { 
-      //unsubscribe logic   
+    return () => {
+      //unsubscribe logic
     }
   })
 
@@ -44,7 +45,7 @@ The main thing to notice is you're creating and returning an Observable.
 `of` passes in a `value`:
 
 ```js
-const of = value => 
+const of = value =>
 ```
 
 then sends that value through `observer.next` and completes immediately:
@@ -125,8 +126,8 @@ want to `next`, an incrementing number makes sense for an interval):
 
 ```js
 let i = 0
-const callback ()=> {     
-  next(i++)    
+const callback ()=> {
+  next(i++)
 }
 ```
 
@@ -148,8 +149,8 @@ const interval = delay => {
     const next = observer.next.bind(observer)
 
     let i = 0
-    const callback ()=> {     
-      next(i++)    
+    const callback ()=> {
+      next(i++)
     }
 
     const id = setInterval(callback, delay)
@@ -168,7 +169,7 @@ const interval = delay => {
 `merge` takes in an Array of observables:
 
 ```js
-const merge = (...observables) => 
+const merge = (...observables) =>
 ```
 
 Runs `subscribe` on all of them:
@@ -228,7 +229,7 @@ const merge = (...observables) => {
     const error = observer.error.bind(observer)
 
     let active = observables.length
-    
+
     const subscriptions = observables.map(observable => {
       const newObserver = {
         next,
@@ -238,7 +239,7 @@ const merge = (...observables) => {
           if (active === 0) {
             complete()
           }
-        }
+        },
       }
 
       const subscription = observable.subscribe(newObserver)
@@ -269,9 +270,7 @@ Subscribe to all of them and get their `subscriptions` (just like we did with `m
 
 ```js
 const subscriptions = observables.map((observable, i) => {
-  const subscription = observable.subscribe(value => {
-
-  })
+  const subscription = observable.subscribe(value => {})
 
   return subscription
 })
@@ -287,7 +286,7 @@ To wait for each Observable to emit a value, we'll fill our Array of values
 with placeholder symbols:
 
 ```js
-const waiting = Symbol("waiting")
+const waiting = Symbol('waiting')
 const values = Array.from({ length: observables.length }).fill(waiting)
 ```
 
@@ -303,16 +302,13 @@ if (values.every(value => value !== waiting)) {
 
 Below is the full implementation:
 
-
 ```js
 const combineLatest = (...observables) => {
   return new Observable(observer => {
-
     let values = Array.from({ length: observables.length })
 
     const subscriptions = observables.map((observable, i) => {
       const subscription = observable.subscribe(value => {
-
         values[i] = value
         if (values.every(value => value)) {
           observer.next(values)
@@ -330,5 +326,3 @@ const combineLatest = (...observables) => {
   })
 }
 ```
-
-
